@@ -1,0 +1,27 @@
+title: Lost Binary Labs
+description: "Raiders of the Lost Binary — firmware archaeology tools."
+url: "https://lostbinarylabs.github.io"
+theme: null
+remote_theme: "mmistakes/minimal-mistakes@4.26.2"
+
+plugins:
+  - jekyll-include-cache
+
+minimal_mistakes_skin: "dark"   # try: "dark", "air", "neon", "default"
+markdown: kramdown
+
+author:
+  name: "Lost Binary Labs"
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: false
+      read_time: true
+      comments: false
+
+# Optional: nice URLs for posts
+permalink: /:categories/:title/
