@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lost Binary Labs — Raiders of the Lost Binary</title>
+  <meta name="description" content="Firmware archaeology tools. Identify what built the original binary. Zombie firmware slaying." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Lost Binary Labs" />
+  <meta property="og:description" content="Raiders of the Lost Binary — firmware archaeology tools." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/logo.png" />
+
+  <link rel="icon" href="assets/img/logo.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Lost Binary Labs Home">
+        <span class="brand-dot"></span>
+        <span>Lost Binary Labs</span>
+      </a>
+
+      <nav class="links">
+        <a href="#firmdiff">firmdiff</a>
+        <a href="#zombies">Zombie Firmware</a>
+        <a href="#about">About</a>
+        <a class="btn btn-small" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <div class="chipline">
+            <span class="pill">Firmware archaeology</span>
+            <span class="pill">Binary comparison</span>
+            <span class="pill">Reproducible builds</span>
+          </div>
+
+          <h1>
+            Raiders of the <span class="accent">Lost Binary</span>
+          </h1>
+
+          <p class="lead">
+            We help engineers resurrect “zombie firmware” — projects that still run in the field,
+            but nobody can rebuild. Identify what built the original binary, and see what actually changed between builds.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn" href="#firmdiff">Explore firmdiff</a>
+            <a class="btn btn-ghost" href="#zombies">See the Zombie series</a>
+          </div>
+
+          <div class="quicklinks">
+            <a href="https://github.com/lostbinarylabs" target="_blank" rel="noopener">GitHub Org</a>
+            <span class="sep">•</span>
+            <a href="https://github.com/lostbinarylabs/firmdiff" target="_blank" rel="noopener">firmdiff Repo</a>
+            <span class="sep">•</span>
+            <a href="#contact">Work with us</a>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="logo-card">
+            <img src="assets/img/logo.png" alt="Lost Binary Labs logo" class="logo" />
+            <div class="logo-caption">
+              <div class="logo-title">Lost Binary Labs</div>
+              <div class="logo-tag">Zombie Firmware Slaying</div>
+            </div>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-k">A ↔ B</div>
+              <div class="stat-v">Build & compare</div>
+            </div>
+            <div class="stat">
+              <div class="stat-k">ELF</div>
+              <div class="stat-v">Sections & symbols</div>
+            </div>
+            <div class="stat">
+              <div class="stat-k">CI</div>
+              <div class="stat-v">Size regression gates</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FIRMDIFF -->
+    <section id="firmdiff" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2><span class="accent">firmdiff</span></h2>
+          <p class="muted">Build Variant A. Build Variant B. Compare outputs. Print results.</p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h3>What it does</h3>
+            <ul>
+              <li>Builds two configurations (flags, env, toolchain changes)</li>
+              <li>Compares FLASH/RAM deltas</li>
+              <li>Surfaces top symbol growth/shrink</li>
+              <li>Works great in CI to block size regressions</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Example</h3>
+            <pre><code>firmdiff run \
+  --name "O2 vs Os" \
+  --src . \
+  --artifact "{out}/app.elf" \
+  --a-cflags "-O2" \
+  --b-cflags "-Os" \
+  --max-flash-delta 2048</code></pre>
+            <div class="card-row">
+              <a class="btn btn-small" href="https://github.com/lostbinarylabs/firmdiff" target="_blank" rel="noopener">View on GitHub</a>
+              <a class="btn btn-small btn-ghost" href="https://github.com/lostbinarylabs/firmdiff#readme" target="_blank" rel="noopener">Docs</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Why it matters</h3>
+            <p>
+              Zombie firmware doesn’t bite you with obvious bugs.
+              It bites you with <strong>unknown toolchains</strong>, <strong>hidden flags</strong>,
+              and binaries that can’t be reproduced.
+            </p>
+            <p class="muted">
+              firmdiff is your “what changed?” detector.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZOMBIE GRAPHICS -->
+    <section id="zombies" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Zombie Firmware <span class="accent">Series</span></h2>
+          <p class="muted">Visual stories for firmware teams dealing with undead builds.</p>
+        </div>
+
+        <div class="gallery">
+          <figure class="shot">
+            <img src="assets/img/zombie-attack.png" alt="Firmware Zombie Attacks graphic" loading="lazy" />
+            <figcaption>Firmware Zombie Attacks</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <img src="assets/img/zombie-detection.png" alt="Firmware Zombie Detection graphic" loading="lazy" />
+            <figcaption>Firmware Zombie Detection</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <img src="assets/img/zombie-autopsy.png" alt="Firmware Zombie Autopsy graphic" loading="lazy" />
+            <figcaption>Firmware Zombie Autopsy</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <img src="assets/img/zombie-hunter.png" alt="Firmware Zombie Hunter Toolkit graphic" loading="lazy" />
+            <figcaption>Zombie Hunter Toolkit</figcaption>
+          </figure>
+        </div>
+
+        <div class="note">
+          Want these as a downloadable media kit? Open an issue on the repo and we’ll package them.
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>About <span class="accent">Lost Binary Labs</span></h2>
+          <p class="muted">We do firmware archaeology: toolchains, flags, binaries, and build truth.</p>
+        </div>
+
+        <div class="split">
+          <div class="card">
+            <h3>What we believe</h3>
+            <ul>
+              <li>If it only builds in an IDE, it’s already a zombie.</li>
+              <li>If you can’t reproduce the binary, you can’t trust the fix.</li>
+              <li>Toolchains should be pinned, builds should be scriptable.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>What we build</h3>
+            <ul>
+              <li><strong>firmdiff</strong> — compare two builds</li>
+              <li>binary “autopsy” tooling</li>
+              <li>CI guardrails for firmware size regressions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p class="muted">Want help identifying what built the original binary? Let’s talk.</p>
+        </div>
+
+        <div class="contact-card">
+          <div>
+            <div class="contact-title">Lost Binary Labs</div>
+            <div class="muted">Raiders of the Lost Binary</div>
+          </div>
+
+          <div class="contact-actions">
+            <a class="btn" href="https://github.com/lostbinarylabs" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <span class="muted">© <span id="year"></span> Lost Binary Labs</span>
+          <span class="muted">Built on GitHub Pages</span>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
